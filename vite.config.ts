@@ -19,7 +19,7 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: 'https://prashantnagpal.com/pubbeh.website/',
+  base: '/',
   build: {
     assetsDir: 'assets',
     rollupOptions: {
