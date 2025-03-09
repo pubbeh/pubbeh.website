@@ -36,9 +36,14 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          VITE_BASE_URL: 'https://prashantnagpal.com/pubbeh.website'
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
+        with:
+          # Automatically inject router scripts for SPA
+          enablement: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
