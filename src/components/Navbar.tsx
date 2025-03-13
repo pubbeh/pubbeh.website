@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -15,6 +14,13 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <nav 
       className={cn(
@@ -24,50 +30,53 @@ const Navbar = () => {
     >
       <div className="container max-w-6xl mx-auto flex items-center justify-between">
         <div className="text-lg font-medium">
-          <a href="#" className="tracking-tight hover:opacity-80 transition-opacity">
+          <button 
+            onClick={() => scrollToSection('hero')}
+            className="tracking-tight hover:opacity-80 transition-opacity"
+          >
             Prashant Nagpal
-          </a>
+          </button>
         </div>
         <ul className="hidden md:flex space-x-8 font-medium text-sm">
           <li>
-            <a 
-              href="#about" 
+            <button 
+              onClick={() => scrollToSection('about')}
               className="hover:text-black/70 transition-colors duration-200"
             >
               About
-            </a>
+            </button>
           </li>
           <li>
-            <a 
-              href="#experience" 
+            <button 
+              onClick={() => scrollToSection('experience')}
               className="hover:text-black/70 transition-colors duration-200"
             >
               Experience
-            </a>
+            </button>
           </li>
           <li>
-            <a 
-              href="#skills" 
+            <button 
+              onClick={() => scrollToSection('skills')}
               className="hover:text-black/70 transition-colors duration-200"
             >
               Skills
-            </a>
+            </button>
           </li>
           <li>
-            <a 
-              href="#education" 
+            <button 
+              onClick={() => scrollToSection('education')}
               className="hover:text-black/70 transition-colors duration-200"
             >
               Education
-            </a>
+            </button>
           </li>
           <li>
-            <a 
-              href="#contact" 
+            <button 
+              onClick={() => scrollToSection('contact')}
               className="hover:text-black/70 transition-colors duration-200"
             >
               Contact
-            </a>
+            </button>
           </li>
         </ul>
         <div className="md:hidden">

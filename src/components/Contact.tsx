@@ -1,11 +1,10 @@
 import { useState } from 'react';
-import { Mail, Linkedin, Phone, MapPin } from 'lucide-react';
+import { Mail, Linkedin, MapPin } from 'lucide-react';
 import { useToast } from "@/components/ui/use-toast";
 
 interface ContactInfo {
   email: string;
   linkedin: string;
-  phone: string;
   location: string;
 }
 
@@ -27,21 +26,74 @@ const Contact = ({ contactInfo }: ContactProps) => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      console.log('Form submitted:', formData);
+    // Basic validation
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      toast({
+        title: "Error",
+        description: "Please fill in all fields.",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      toast({
+        title: "Error",
+        description: "Please enter a valid email address.",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Message length validation
+    if (formData.message.length < 10) {
+      toast({
+        title: "Error",
+        description: "Message must be at least 10 characters long.",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+    
+    try {
+      const response = await fetch(import.meta.env.VITE_GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        body: JSON.stringify({
+          ...formData,
+          timestamp: new Date().toISOString(), // Add timestamp for rate limiting
+          source: window.location.hostname // Add source for tracking
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        mode: 'no-cors'
+      });
+      
       toast({
         title: "Message sent!",
         description: "Thank you for reaching out. I'll respond as soon as possible.",
       });
-      
       setFormData({ name: '', email: '', message: '' });
+      
+    } catch (error) {
+      console.error('Error sending message:', error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   return (
@@ -67,8 +119,8 @@ const Contact = ({ contactInfo }: ContactProps) => {
                 <Mail className="w-5 h-5 mt-1 mr-3 text-primary" />
                 <div>
                   <h4 className="font-medium">Email</h4>
-                  <a href="mailto:prashant.nagpal@example.com" className="text-muted-foreground hover:text-primary transition-colors">
-                    prashant.nagpal@example.com
+                  <a href={`mailto:${contactInfo.email}`} className="text-muted-foreground hover:text-primary transition-colors">
+                    {contactInfo.email}
                   </a>
                 </div>
               </div>
@@ -78,22 +130,12 @@ const Contact = ({ contactInfo }: ContactProps) => {
                 <div>
                   <h4 className="font-medium">LinkedIn</h4>
                   <a 
-                    href="https://www.linkedin.com/in/nagpal-p/"
+                    href={contactInfo.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    linkedin.com/in/nagpal-p
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start">
-                <Phone className="w-5 h-5 mt-1 mr-3 text-primary" />
-                <div>
-                  <h4 className="font-medium">Phone</h4>
-                  <a href="tel:+491XXXXXXXXX" className="text-muted-foreground hover:text-primary transition-colors">
-                    +49 1XX XXX XXXX
+                    {contactInfo.linkedin.replace('https://', '')}
                   </a>
                 </div>
               </div>
@@ -103,7 +145,7 @@ const Contact = ({ contactInfo }: ContactProps) => {
                 <div>
                   <h4 className="font-medium">Location</h4>
                   <span className="text-muted-foreground">
-                    Berlin, Germany
+                    {contactInfo.location}
                   </span>
                 </div>
               </div>

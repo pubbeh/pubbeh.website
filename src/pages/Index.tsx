@@ -30,10 +30,7 @@ const Index = () => {
       />
       <Experience experiences={profileData.experience} />
       <Skills skillGroups={profileData.skills} />
-      <Education 
-        educationItems={profileData.education}
-        certifications={profileData.certifications}
-      />
+      <Education educationItems={profileData.education} />
       <Contact contactInfo={profileData.contact} />
       <Footer name={profileData.name} title={profileData.title} />
       <AnimationObserver />

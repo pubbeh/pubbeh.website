@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 
 const AnimationObserver = () => {
@@ -8,16 +7,18 @@ const AnimationObserver = () => {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Get the data-width attribute for skill bars
-            const skillBar = entry.target.querySelector('[data-width]');
-            if (skillBar && skillBar instanceof HTMLElement) {
-              const width = skillBar.getAttribute('data-width');
-              if (width) {
-                setTimeout(() => {
-                  skillBar.style.width = width;
-                }, 100);
+            // Get all skill bars within this section
+            const skillBars = entry.target.querySelectorAll('[data-width]');
+            skillBars.forEach((skillBar) => {
+              if (skillBar instanceof HTMLElement) {
+                const width = skillBar.getAttribute('data-width');
+                if (width) {
+                  setTimeout(() => {
+                    skillBar.style.width = width;
+                  }, 100);
+                }
               }
-            }
+            });
 
             // Add animation for section reveals
             if (entry.target.classList.contains('js-reveal')) {
@@ -33,11 +34,6 @@ const AnimationObserver = () => {
       });
 
       // Observe all elements with js-reveal class
-      document.querySelectorAll('.js-reveal').forEach((element) => {
-        observer.observe(element);
-      });
-
-      // Observe all elements containing skill bars
       document.querySelectorAll('.js-reveal').forEach((element) => {
         observer.observe(element);
       });

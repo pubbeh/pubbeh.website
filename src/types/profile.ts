@@ -5,20 +5,6 @@ export interface Education {
   description: string;
 }
 
-export interface Certification {
-  name: string;
-  institution: string;
-  year: string;
-}
-
-export interface SkillGroup {
-  category: string;
-  items: {
-    name: string;
-    level: number;
-  }[];
-}
-
 export interface ExperiencePoint {
   text: string;
   subPoints: string[];
@@ -33,6 +19,14 @@ export interface Experience {
   description: ExperiencePoint[];
 }
 
+export interface SkillGroup {
+  category: string;
+  items: {
+    name: string;
+    level: number;
+  }[];
+}
+
 export interface Profile {
   name: string;
   title: string;
@@ -43,13 +37,11 @@ export interface Profile {
     philosophy: string;
   };
   education: Education[];
-  certifications: Certification[];
   skills: SkillGroup[];
   experience: Experience[];
   contact: {
     email: string;
     linkedin: string;
-    phone: string;
     location: string;
   };
 } 

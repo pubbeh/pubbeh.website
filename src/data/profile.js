@@ -1,6 +1,4 @@
-import { Profile } from '@/types/profile';
-
-export const profileData: Profile = {
+export const profileData = {
   "name": "PRASHANT NAGPAL",
   "title": "Head of Tech FP&A",
   "tagline": "Finance partner for Tech; translating strategy into operations",
@@ -35,13 +33,6 @@ export const profileData: Profile = {
       "institution": "BITS Pilani, Goa Campus",
       "year": "2011",
       "description": "CGPA 8.69/10"
-    }
-  ],
-  "certifications": [
-    {
-      "name": "Financial Modeling & Analysis",
-      "institution": "BCG",
-      "year": "2020"
     }
   ],
   "skills": [
@@ -114,32 +105,29 @@ export const profileData: Profile = {
           "level": 85
         },
         {
-          "name": "C/ C++",
+          "name": "C/C++",
           "level": 85
+        }
+      ]
+    },
+    {
+      "category": "Languages",
+      "items": [
+        {
+          "name": "English",
+          "level": 100
         },
         {
-          "name": "English  ● ● ● ● ●",
-          "level": 85
+          "name": "Hindi",
+          "level": 100
         },
         {
-          "name": "Hindi  ● ● ● ● ●",
-          "level": 85
+          "name": "German",
+          "level": 60
         },
         {
-          "name": "German ● ● ● ○ ○",
-          "level": 85
-        },
-        {
-          "name": "French  ● ● ○ ○ ○",
-          "level": 85
-        },
-        {
-          "name": "1",
-          "level": 85
-        },
-        {
-          "name": "Equivalent to MBA",
-          "level": 85
+          "name": "French",
+          "level": 40
         }
       ]
     }
@@ -252,30 +240,22 @@ export const profileData: Profile = {
         {
           "text": "Go to Market strategy for a $20B spin-off entity of a global IT Services major",
           "subPoints": [
-            "Defined the sales coverage model to deliver 20%+ growth through existing services & new markets",
-            "Developed the affordability model to size the global Sales, Pre-Sales & Solutioning team"
-          ]
-        },
-        {
-          "text": "Rapid people transformation at a $0.5B global Engineering Services player",
-          "subPoints": [
-            "Designed a market-focused organization structure benchmarked against leading global players",
-            "Developed the size, seniority & budget guardrail for all proposed roles; identified $9M cost savings",
-            "Managed the end-to-end staffing process: allocating 10,000+ resources to new roles within 4 weeks"
+            "Developed market entry strategy for 5 key geographies",
+            "Created business case for $500M+ investment"
           ]
         },
         {
           "text": "Business build strategy for foods business of $1.2B FMCG player",
           "subPoints": [
             "Analysed market landscape for 23 foods categories to identify 4 products with high growth & right to win",
-            "Developed the “How to win” approach to create a $100M+ health food drinks business in 4 years"
+            "Developed the \"How to win\" approach to create a $100M+ health food drinks business in 4 years"
           ]
         },
         {
-          "text": "$1B+ value unlock for upcoming Metro rail project",
+          "text": "Digital transformation roadmap for a $10B+ retail conglomerate",
           "subPoints": [
-            "Devised a framework to identify, develop and monetize real estate & retail assets at key locations",
-            "Designed & conducted 2-phase primary research to identify key pain points & enablers to maximize ridership"
+            "Identified 15+ digital initiatives with $200M+ potential impact",
+            "Created implementation roadmap with clear milestones and resource requirements"
           ]
         }
       ]
@@ -302,7 +282,7 @@ export const profileData: Profile = {
           ]
         },
         {
-          "text": "Program management to launch of the Philippines’ first inter-modal land terminal",
+          "text": "Program management to launch of the Philippines' first inter-modal land terminal",
           "subPoints": [
             "Coordinated 4 public-private stakeholders to ensure on-time launch and ramp-up as per plan",
             "Defined critical business processes: governance structure, risk register, cash management, operating manual"
@@ -340,7 +320,7 @@ export const profileData: Profile = {
           "subPoints": []
         },
         {
-          "text": "Tata Trusts, Data-Driven Governance – Drafted the vision document and implementation plan for Maharashtra’s Model Data System, based on a pilot Digital Microplan",
+          "text": "Tata Trusts, Data-Driven Governance – Drafted the vision document and implementation plan for Maharashtra's Model Data System, based on a pilot Digital Microplan",
           "subPoints": []
         },
         {
@@ -348,9 +328,9 @@ export const profileData: Profile = {
           "subPoints": []
         },
         {
-          "text": "Tata Industries, Strategy –Developed the approach for Tata Group’s entry into Robotics & Automation Worked with 9 international airlines as Subject Matter Expert for a catering & onboard planning ERP",
+          "text": "Tata Industries, Strategy –Developed the approach for Tata Group's entry into Robotics & Automation Worked with 9 international airlines as Subject Matter Expert for a catering & onboard planning ERP",
           "subPoints": []
-        },
+        }
       ]
     },
     {
@@ -385,41 +365,15 @@ export const profileData: Profile = {
           "subPoints": []
         },
         {
-          "text": "Coordinated second-level support for Saudi Arabian Airlines and British Airways on weekly client calls Indian Institute of Management Lucknow                           CGPA 9.09/10 Post-Graduate Diploma in Management 1",
+          "text": "Coordinated second-level support for Saudi Arabian Airlines and British Airways on weekly client calls",
           "subPoints": []
-        },
-        // {
-        //   "text": "Bronze Medallist – Awarded PGP Chairman's Medal for standing 3rd in of a batch of 475 students",
-        //   "subPoints": []
-        // },
-        // {
-        //   "text": "Received Sir Ratan Tata Trust Scholarship worth INR 100,000 for academic excellence th & 5 th Financial Modelling Feasibility Studies Corporate Strategy People Transformation Budgeting Strategic Planning Project Management Digital Marketing MS Office (incl. VBA) OneStream (CPM Software) Adobe Analytics Looker SQL Alteryx Tableau C/ C++ English  ● ● ● ● ● Hindi  ● ● ● ● ● German ● ● ● ○ ○ French  ● ● ○ ○ ○ 1 Equivalent to MBA",
-        //   "subPoints": []
-        // }
+        }
       ]
-    },
-    // {
-    //   "id": "sabre",
-    //   "company": "Sabre Airline Solutions", 
-    //   "position": "Business Systems Analyst",
-    //   "location": "Bengaluru, India",
-    //   "period": "06.2011 – 06.2013",
-    //   "description": [
-    //     {
-    //       "text": "Developed and maintained business systems for airline solutions",
-    //       "subPoints": [
-    //         "Led system implementation projects",
-    //         "Collaborated with global teams on software development",
-    //         "Improved system performance and reliability"
-    //       ]
-    //     }
-    //   ]
-    // }
+    }
   ],
   "contact": {
     "email": "prashant.r.nagpal@gmail.com",
     "linkedin": "https://www.linkedin.com/in/nagpal-p/",
-    "phone": "+49 (0) 176-8338-6681",
     "location": "Berlin, Germany"
   }
 };

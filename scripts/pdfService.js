@@ -1,25 +1,29 @@
 import * as pdfjs from 'pdfjs-dist';
-import { Profile } from '@/types/profile';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Set worker path for PDF.js
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+pdfjs.GlobalWorkerOptions.workerSrc = join(__dirname, '..', 'node_modules', 'pdfjs-dist', 'build', 'pdf.worker.min.js');
 
-export async function extractProfileFromPDF(pdfPath: string): Promise<Profile> {
+export async function extractProfileFromPDF(pdfPath) {
   try {
     const pdf = await pdfjs.getDocument(pdfPath).promise;
     const page = await pdf.getPage(1);
     const textContent = await page.getTextContent();
-    const text = textContent.items.map((item: any) => item.str).join(' ');
+    const text = textContent.items.map((item) => item.str).join(' ');
 
     // Function to extract first email from text
-    const extractFirstEmail = (text: string): string => {
+    const extractFirstEmail = (text) => {
       const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
       const match = text.match(emailRegex);
-      return match ? match[0] : "prashant.nagpal@example.com";
+      return match ? match[0] : "prashant.r.nagpal@gmail.com";
     };
 
     // Parse the text content into profile sections
-    const profile: Profile = {
+    const profile = {
       name: extractField(text, 'Name:', '\n') || "Prashant Nagpal",
       title: extractField(text, 'Title:', '\n') || "Head of Finance",
       tagline: extractField(text, 'Tagline:', '\n') || "Experienced finance leader with expertise in financial strategy",
@@ -72,7 +76,7 @@ export async function extractProfileFromPDF(pdfPath: string): Promise<Profile> {
   }
 }
 
-function extractField(text: string, startMarker: string, endMarker: string): string {
+function extractField(text, startMarker, endMarker) {
   const startIndex = text.indexOf(startMarker);
   if (startIndex === -1) return '';
   
