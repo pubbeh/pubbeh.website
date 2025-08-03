@@ -11,12 +11,7 @@ export async function extractProfileFromPDF(pdfPath: string): Promise<Profile> {
     const textContent = await page.getTextContent();
     const text = textContent.items.map((item: any) => item.str).join(' ');
 
-    // Function to extract first email from text
-    const extractFirstEmail = (text: string): string => {
-      const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
-      const match = text.match(emailRegex);
-      return match ? match[0] : "prashant.nagpal@example.com";
-    };
+
 
     // Parse the text content into profile sections
     const profile: Profile = {
@@ -59,7 +54,6 @@ export async function extractProfileFromPDF(pdfPath: string): Promise<Profile> {
         }
       ],
       contact: {
-        email: extractFirstEmail(text),
         linkedin: extractField(text, 'LinkedIn:', '\n') || "https://www.linkedin.com/in/nagpal-p/",
         location: extractField(text, 'Location:', '\n') || "Berlin, Germany"
       }

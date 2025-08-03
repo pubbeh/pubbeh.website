@@ -40,7 +40,6 @@ export interface Profile {
   skills: SkillGroup[];
   experience: Experience[];
   contact: {
-    email: string;
     linkedin: string;
     location: string;
   };

@@ -3,7 +3,6 @@ import { Mail, Linkedin, MapPin } from 'lucide-react';
 import { useToast } from "@/components/ui/use-toast";
 
 interface ContactInfo {
-  email: string;
   linkedin: string;
   location: string;
 }
@@ -115,16 +114,6 @@ const Contact = ({ contactInfo }: ContactProps) => {
             </p>
 
             <div className="space-y-4">
-              <div className="flex items-start">
-                <Mail className="w-5 h-5 mt-1 mr-3 text-primary" />
-                <div>
-                  <h4 className="font-medium">Email</h4>
-                  <a href={`mailto:${contactInfo.email}`} className="text-muted-foreground hover:text-primary transition-colors">
-                    {contactInfo.email}
-                  </a>
-                </div>
-              </div>
-
               <div className="flex items-start">
                 <Linkedin className="w-5 h-5 mt-1 mr-3 text-primary" />
                 <div>

@@ -286,7 +286,6 @@ async function generateProfile() {
     // Extract contact info
     const contactMatch = text.match(/(\d+), M \| (.*?) \| (\+\d+.*?) \|.*?Location: (.*?)(?:\n|$)/);
     const contact = contactMatch ? {
-      email: contactMatch[2],
       phone: contactMatch[3],
       location: contactMatch[4],
       linkedin: "https://www.linkedin.com/in/nagpal-p/"
@@ -327,7 +326,6 @@ async function generateProfile() {
       skills: extractSkills(text),
       experience: extractExperience(text),
       contact: contact || {
-        email: "prashant.r.nagpal@gmail.com",
         linkedin: "https://www.linkedin.com/in/nagpal-p/",
         phone: "+49 (0) 176-8338-6681",
         location: "Berlin, Germany"

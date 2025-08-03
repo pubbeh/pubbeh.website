@@ -72,7 +72,6 @@ async function generateProfile() {
         }
       ],
       contact: {
-        email: extractField(text, 'Email:', '\n') || "prashant.nagpal@example.com",
         linkedin: extractField(text, 'LinkedIn:', '\n') || "https://www.linkedin.com/in/nagpal-p/",
         phone: extractField(text, 'Phone:', '\n') || "+49 1XX XXX XXXX",
         location: extractField(text, 'Location:', '\n') || "Berlin, Germany"

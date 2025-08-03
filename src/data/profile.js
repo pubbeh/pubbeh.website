@@ -372,7 +372,6 @@ export const profileData = {
     }
   ],
   "contact": {
-    "email": "prashant.r.nagpal@gmail.com",
     "linkedin": "https://www.linkedin.com/in/nagpal-p/",
     "location": "Berlin, Germany"
   }
