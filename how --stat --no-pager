@@ -1,0 +1,15 @@
+[33mcommit c196e13b106d02771381c9d3803a7bd1713ffc81[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Prashant Nagpal <pnagpal01@gmail.com>
+Date:   Sun Aug 3 20:03:52 2025 +0200
+
+    Remove email ID from public display while keeping contact form functional
+
+ scripts/pdfService.js           |  8 [32m+[m[31m-------[m
+ src/components/Contact.tsx      | 11 [31m-----------[m
+ src/components/Footer.tsx       | 11 [32m+[m[31m----------[m
+ src/data/profile.js             |  1 [31m-[m
+ src/scripts/generateProfile.cjs |  2 [31m--[m
+ src/scripts/generateProfile.js  |  1 [31m-[m
+ src/services/pdfService.ts      |  8 [32m+[m[31m-------[m
+ src/types/profile.ts            |  1 [31m-[m
+ 8 files changed, 3 insertions(+), 40 deletions(-)
